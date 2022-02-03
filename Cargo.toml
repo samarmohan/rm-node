@@ -1,0 +1,18 @@
+[package]
+name = "rm-node"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Delete node_modules, package-lock.json and/or yarn.lock quickly and asynchronously on all platforms"
+repository = "https://github.com/samarmohan/rm-node-modules"
+keywords = ["io", "cross-platform", "async", "javascript", "cli"]
+categories = ["command-line-utilities"]
+readme = "README.md"
+authors = ["Samar Mohan <samar.mohan@gmail.com>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.16.1", features = ["fs"] }
+delete = "1.0.1"
+clap = { version = "3.0.14", features = ["derive"] }
