@@ -7,6 +7,9 @@ JS devs know that NPM fails a lot and usually the solution is to delete `node_mo
 `node_modules` is so big it can take minutes to delete. <br>
 `rm-node` solves this problem by using the [delete crate](https://github.com/XtremeDevX/delete) powered by [tokio](https://github.com/tokio-rs/tokio) to delete files and folders 2-3x faster!
 
+### How the problem can actually be solved
+fix the whole `node_modules` thing and make lockfiles work like they do in Rust
+
 ### Features
 - async
 - cross-platform
