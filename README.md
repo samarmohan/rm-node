@@ -4,7 +4,13 @@
 ### About
 
 JS devs know that NPM fails a lot and usually the solution is to delete `node_modules`, delete the lockfile, and then reinstall. Sadly
-`node_modules` is so big it can take minutes to delete, `rm-node` solves this problem by using the [delete crate](https://github.com/XtremeDevX/delete) powered by [tokio](https://github.com/tokio-rs/tokio) to delete files and folders 2-3x faster!
+`node_modules` is so big it can take minutes to delete. <br>
+`rm-node` solves this problem by using the [delete crate](https://github.com/XtremeDevX/delete) powered by [tokio](https://github.com/tokio-rs/tokio) to delete files and folders 2-3x faster!
+
+### Features
+- async
+- cross-platform
+- fast
 
 ### Installation
 
