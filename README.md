@@ -31,6 +31,12 @@ To only delete `node_modules`: <br>
 ### Bugs and Contributing
 
 Report issues using the [issue tracker](https://github.com/samarmohan/rm-node/issues/new) <br>
+
+Make sure Rust and Cargo are installed.
+
+Run `gen.cmd` or `gen.sh` depending on your OS.
+Run `cargo run` with the options specified in the Usage section.
+
 Submit PRs on GitHub!
 
 ### License

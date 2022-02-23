@@ -17,5 +17,5 @@ authors = ["Samar Mohan <samar.mohan@gmail.com>"]
 tokio = { version = "1.16.1", features = ["full"] }
 delete = "1.0.1"
 clap = { version = "3.0.14", features = ["default"] }
-ansi_term = "0.12.1"
 indicatif = "0.16.2"
+owo-colors = "3.2.0"

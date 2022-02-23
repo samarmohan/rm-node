@@ -1,14 +1,14 @@
-use clap::{Arg, App};
+use clap::{Arg, Command};
 use delete::{rapid_delete_dir_all, delete_file_async};
 use std::path::Path;
-use ansi_term::Colour::{Red, Green};
+use owo_colors::OwoColorize;
 use std::thread;
 use std::time::Duration;
 use indicatif::{ProgressBar, ProgressStyle};
 
 #[tokio::main]
 async fn main() {
-    let app = App::new("rm-node")
+    let app = Command::new("rm-node")
         .version("0.1.0")
         .about("Delete node_modules, package-lock.json and/or yarn.lock quickly and asynchronously on all platforms")
         .author("Samar Mohan");
@@ -45,14 +45,10 @@ async fn main() {
     pb.finish_with_message("Done!");
 
     if Path::new("node_modules").exists() {
-        rapid_delete_dir_all("node_modules", None, None).await
-            .unwrap_or_else(|e| {
-                eprintln!("{}", Red.paint("Error: "));
-                eprintln!("{}", e);
-            });
-        println!("{}", Green.paint("Successfully deleted node_modules"));
+        rapid_delete_dir_all("node_modules", None, None).await.unwrap();
+        println!("{}", "Successfully deleted node_modules".on_green());
     } else {
-        println!("{}", Red.paint("Folder node_modules not found"));
+        println!("{}", "Folder node_modules not found".on_red());
     }
     if should {
         delete_stuff("package-lock.json").await;
@@ -62,11 +58,9 @@ async fn main() {
 
 async fn delete_stuff(path: &str) {
     if Path::new(path).exists() {
-        delete_file_async(path).await
-            .unwrap_or_else(|e| {
-                eprintln!("{}", Red.paint("Error: "));
-                eprintln!("{}", e);
-            });
-        println!("{}", Green.paint("Successfully deleted lockfiles"));
+        delete_file_async(path).await.unwrap();
+        println!("{}", format!("Successfully deleted {}", path).on_green());
+    } else {
+        println!("{}", format!("File {} not found", path).on_red());
     }
 }
